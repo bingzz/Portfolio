@@ -1,0 +1,35 @@
+header {
+  background-color: $almost-black;
+	position: sticky;
+	top: 0;
+	width: 100%;
+  z-index: 3;
+
+	nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0.75rem 2rem;
+    font-size: 1.325rem;
+
+		ul {
+			display: flex;
+			justify-content: end;
+
+			li {
+				padding: 0.8rem 1rem;
+				list-style: none;
+        border: 1px solid transparent;
+
+				a {
+					text-decoration: none;
+					color: $text-secondary;
+
+          &:hover {
+            color: $blue-secondary;
+          }
+				}
+			}
+		}
+	}
+}

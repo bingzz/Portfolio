@@ -1,0 +1,132 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-size: 100%;
+  background-color: #020202;
+  color: #eeeeee;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+header {
+  background-color: #020202;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.75rem 2rem;
+  font-size: 1.325rem;
+}
+header nav ul {
+  display: flex;
+  justify-content: end;
+}
+header nav ul li {
+  padding: 0.8rem 1rem;
+  list-style: none;
+  border: 1px solid transparent;
+}
+header nav ul li a {
+  text-decoration: none;
+  color: #c4c4c4;
+}
+header nav ul li a:hover {
+  color: rgba(17, 116, 197, 0.5411764706);
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 0;
+  margin-top: auto;
+  width: 100%;
+}
+footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer ul li {
+  list-style-type: none;
+}
+footer ul li a {
+  transition: all 0.2s ease-in-out;
+  font-size: 1.825rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #c4c4c4;
+}
+footer ul li a:hover {
+  color: rgba(6, 8, 146, 0.5411764706);
+  text-shadow: 0 0 0 rgba(17, 116, 197, 0.5411764706), 0 0 0 rgba(6, 8, 146, 0.5411764706), 0 0 40px rgba(17, 116, 197, 0.5411764706);
+}
+footer p {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  color: #202020;
+}
+
+.home-hero {
+  height: calc(100vh - 80px);
+  position: relative;
+  color: #eeeeee;
+  text-shadow: 0 0 30px #020202;
+  text-align: center;
+  line-height: 5rem;
+  padding-top: 40vh;
+  transform-style: preserve-3d;
+}
+.home-hero::after {
+  content: "";
+  background: url("../../../public/mountain.jpg") center fixed no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transform: translateZ(-1px);
+}
+.home-hero h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.625rem;
+  font-size: 4rem;
+}
+.home-hero h3 {
+  letter-spacing: 0.425rem;
+}
+.home-description {
+  width: 75%;
+  padding: 1rem;
+  margin: 0 auto;
+}
+.home-description p {
+  font-size: 1.5rem;
+  text-align: justify;
+}/*# sourceMappingURL=App.css.map */
