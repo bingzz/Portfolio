@@ -1,0 +1,35 @@
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+  background-color: var(--color-full-black);
+  color: var(--color-light-gray);
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0.75rem 2rem;
+    padding: 0.8rem;
+    font-size: 1.325rem;
+  }
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+
+  li {
+    padding: 0.8rem 1rem;
+    border: 1px solid transparent;
+
+    a {
+      transition: 100ms ease-in-out;
+
+      &:hover {
+        color: var(--color-light-blue);
+      }
+    }
+  }
+}

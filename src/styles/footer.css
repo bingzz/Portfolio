@@ -1,0 +1,32 @@
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  margin-top: auto;
+  background-color: var(--color-full-black);
+  width: 100%;
+
+  p {
+    user-select: none;
+    color: var(--color-dark-gray);
+  }
+}
+
+footer ul {
+
+  li {
+    a {
+      color: red;
+    }
+
+    .Github {
+      background-image: url(../assets/img/github.svg);
+    }
+
+    /* img {
+      width: 40px;
+      height: 40px;
+    } */
+  }
+}
