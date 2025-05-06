@@ -10,25 +10,47 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 0.75rem 2rem;
-    padding: 0.8rem;
+    /* margin: 0 0.75rem 2rem; */
+    padding: 0.8rem 2rem;
     font-size: 1.325rem;
   }
 }
 
-nav ul {
+header nav ul {
   display: flex;
   justify-content: flex-end;
 
   li {
-    padding: 0.8rem 1rem;
-    border: 1px solid transparent;
+    padding-bottom: 0.2rem;
 
     a {
       transition: 100ms ease-in-out;
+      position: relative;
+      letter-spacing: 0.05rem;
 
-      &:hover {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 10%;
+        display: block;
+        background: none repeat scroll 0 0 transparent;
+        height: 1px;
+        left: 50%;
+        background: var(--color-light-blue);
+        transition: width 200ms ease 0s, left 200ms ease 0s;
+        width: 0;
+      }
+
+      &:hover, &.active {
         color: var(--color-light-blue);
+
+        &::after {
+          width: 100%;
+          left: 0;
+        }
       }
     }
   }

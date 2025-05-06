@@ -13,6 +13,13 @@
   --font-light: 'Roboto-Light', sans-serif;
 }
 
+div#root {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .hover-glow {
   transition: all 200ms ease-in-out;
 }

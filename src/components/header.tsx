@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const nav = [
   {
-    link: '/',
+    path: '/',
     page: 'Home'
   },
   {
-    link: '/projects',
+    path: '/projects',
     page: 'Projects'
   },
   {
-    link: '/contact',
+    path: '/contact',
     page: 'Contact'
   },
 ];
@@ -23,8 +23,10 @@ export default function Header() {
         <ul>
           {
             nav.map(item => (
-              <li>
-                <Link to={item.link}>{item.page}</Link>
+              <li key={item.path}>
+                <NavLink to={item.path} className={({isActive}) => isActive ? 'active' : ''}>
+                {item.page}
+                </NavLink>
               </li>
             ))
           }

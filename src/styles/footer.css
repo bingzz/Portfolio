@@ -2,9 +2,10 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: 1rem 2rem;
   margin-top: auto;
   background-color: var(--color-full-black);
+  /* background-color: var(--color-light-gray); */
   width: 100%;
 
   p {
@@ -14,19 +15,13 @@ footer {
 }
 
 footer ul {
-
+  display: flex;
+  gap: 0.35rem;
+  
   li {
-    a {
-      color: red;
-    }
-
-    .Github {
-      background-image: url(../assets/img/github.svg);
-    }
-
-    /* img {
+    img {
       width: 40px;
       height: 40px;
-    } */
+    }
   }
 }

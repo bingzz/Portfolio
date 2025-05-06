@@ -34,9 +34,9 @@ export default function Footer() {
       <ul>
         {
           urls.map(url =>
-            <li>
+            <li key={url.link}>
               <Link to={url.link} target="_blank">
-                <img src={url.src} alt={url.name} />
+                <img src={url.src} alt={url.name} title={"Irving's " + url.name} />
               </Link>
             </li>)
         }
