@@ -41,7 +41,7 @@ export default function Footer() {
             </li>)
         }
       </ul>
-      <p>&copy; by Irving Craig Real.</p>
+      <p>&copy; Irving Craig Real.</p>
     </footer>
   );
 }

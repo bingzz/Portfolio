@@ -1,0 +1,75 @@
+section#contact-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  input,
+  textarea {
+    margin-bottom: 0.425rem;
+    width: 100%;
+  }
+}
+
+section#contact-wrapper fieldset {
+  border: 1px solid white;
+  padding: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  width: 25rem;
+  background-color: var(--color-semi-black);
+
+  p {
+    margin-bottom: 0.5rem;
+
+    &.msg {
+      text-align: justify;
+      font-size: 1.05rem;
+    }
+  }
+
+  textarea {
+    height: 8rem;
+  }
+
+  label {
+
+    p,
+    strong {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    &>div {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    display: block;
+    position: relative;
+    padding-bottom: 0.85rem;
+  }
+
+  span {
+    color: var(--color-light-red);
+
+    &.info {
+      color: var(--color-light-gray);
+    }
+  }
+
+  div.submission {
+
+    button {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+}

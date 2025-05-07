@@ -2,6 +2,9 @@
 @import url(./styles/globals.css);
 @import url(./styles/header.css);
 @import url(./styles/footer.css);
+@import url(./styles/inputs.css);
+@import url(./styles/buttons.css);
+@import url(./styles/contact.css);
 
 
 *,
@@ -37,4 +40,17 @@ li {
 a {
   text-decoration: none;
   color: var(--color-off-white);
+}
+
+textarea {
+  resize: none;
+}
+
+section#contact-wrapper,
+section#projects,
+section#home {
+  color: var(--color-light-gray);
+  height: 100%;
+  /* max-width: 1200px;
+  margin: auto; */
 }

@@ -1,0 +1,25 @@
+button {
+  color: var(--color-light-gray);
+  background-color: var(--color-light-blue);
+  border: none;
+  padding: 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  transition: background 100ms ease-in-out, box-shadow 100ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 1.5rem var(--color-light-blue);
+  }
+
+  &:hover {
+    background-color: var(--color-dark-blue);
+  }
+
+  &:disabled {
+    cursor: default;
+    background-color: var(--color-dark-gray);
+    box-shadow: none;
+  }
+}
