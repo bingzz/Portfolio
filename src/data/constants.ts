@@ -11,5 +11,9 @@ export const apiKeys = {
     public_key: '2iK7nEIsF-u1sXWVW',
     template_id: 'template_qf4rocm',
     service_id: 'service_3040jov',
+  },
+  recaptcha: {
+    site_key: '6Ld3OzIrAAAAAE37BI5PavHttSCRkfpqvEUoDBZV',
+    secret_key: ''
   }
 };

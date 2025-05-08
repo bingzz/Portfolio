@@ -1,7 +1,7 @@
 section#contact-wrapper {
   display: flex;
   justify-content: center;
-  padding: 3rem;
+  padding: 1.5rem;
 
   h2 {
     margin-bottom: 1rem;
@@ -21,6 +21,7 @@ section#contact-wrapper fieldset {
   overflow: hidden;
   width: 25rem;
   background-color: var(--color-semi-black);
+  box-shadow: 0 0 5px var(--color-light-gray);
 
   p {
     margin-bottom: 0.5rem;
@@ -62,14 +63,19 @@ section#contact-wrapper fieldset {
   }
 
   div.submission {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 
     button {
       width: 100%;
-      margin-bottom: 0.5rem;
     }
 
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+    .recaptcha {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
   }
 }

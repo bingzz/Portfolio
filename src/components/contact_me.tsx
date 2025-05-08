@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { Ref, useEffect, useRef, useState } from "react";
 import { regex } from "../data/regex";
 import { ContactForm } from "../models/schema";
 import sendMessage from "../utils/email";
+import ReCaptchaV2 from 'react-google-recaptcha';
+import { apiKeys } from "../data/constants";
+import verifySite from "../utils/fetch";
 
 enum FormStatus {
   idle = 'idle',
@@ -15,29 +18,25 @@ type SentStatus = {
   message: string;
 };
 
-
 export default function ContactMe() {
   // State management
   const [errors, setErrors] = useState<ContactForm>({
     email: '',
     message: '',
-    name: ''
+    name: '',
+    token: null
   });
   const [formData, setFormData] = useState<ContactForm>({
     email: '',
     name: '',
-    message: ''
+    message: '',
+    token: null
   });
   const [status, setStatus] = useState<SentStatus>({
     type: FormStatus.idle,
     message: ''
   });
-  // const [status, setStatus] = useState({
-  //   isLoading: false,
-  //   isSent: false,
-  //   isError: false,
-  //   message: ''
-  // });
+  const recaptchaRef: Ref<ReCaptchaV2> | undefined = useRef(null);
   const maxMsgLength = 255; // Message length
 
   // Change input data
@@ -52,21 +51,25 @@ export default function ContactMe() {
   };
 
   // Submit form
-  const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
+  const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (status.type === 'processing') return;
 
     const formErrors = validateForm(formData);
     setErrors(formErrors);
 
-    setStatus({ type: 'processing', message: 'Sending message...' });
-
-    const hasErrors = Object.values(formErrors).some(error => !!error.length);
+    const hasErrors = Object.values(formErrors).some(error => !!error?.length);
 
     if (hasErrors) {
-      setStatus({ type: 'error', message: 'Please complete the form' });
+      setStatus({ type: 'error', message: '' });
+
+      setTimeout(() => {
+        setStatus({ type: 'idle', message: '' });
+      }, 2000);
       return;
     }
+
+    setStatus({ type: 'processing', message: 'Sending message...' });
 
     // Email to user
     sendMessage(formData)
@@ -74,11 +77,13 @@ export default function ContactMe() {
         // Success
         if (response.status === 200) {
           setStatus({ type: 'sent', message: 'Message successfully sent!' });
+          // verifySite(formData);
 
           setTimeout(() => {
             resetErrors();
             clearForm();
             setStatus({ type: 'idle', message: '' });
+            recaptchaRef.current?.reset();
           }, 4000);
           return;
         }
@@ -88,9 +93,11 @@ export default function ContactMe() {
           setStatus({ type: 'error', message: 'Too many requests! Please try again later.' });
 
           setTimeout(() => {
+            resetErrors();
             setStatus({ type: 'idle', message: '' });
+            recaptchaRef.current?.reset();
           }, 4000);
-        } else {
+        } else { // Other errors
           console.error('Error sending message:', response.text);
           setStatus({ type: 'error', message: 'There is an error sending the message' });
         }
@@ -105,7 +112,8 @@ export default function ContactMe() {
     const formErrors: ContactForm = {
       email: '',
       message: '',
-      name: ''
+      name: '',
+      token: null
     };
 
     if (!data.email) {
@@ -128,6 +136,10 @@ export default function ContactMe() {
       formErrors.message = 'Message too short.';
     }
 
+    if (!data.token) {
+      formErrors.token = 'Validate ReCaptcha.';
+    }
+
     return formErrors;
   };
 
@@ -137,7 +149,8 @@ export default function ContactMe() {
       setErrors({
         email: '',
         message: '',
-        name: ''
+        name: '',
+        token: null
       });
       return;
     }
@@ -148,11 +161,24 @@ export default function ContactMe() {
     });
   };
 
+  // Handle recaptcha token
+  const handleToken = (token: string | null) => {
+    if (!token) {
+      recaptchaRef.current?.reset();
+    }
+
+    setFormData({
+      ...formData,
+      token
+    });
+  };
+
   // Clear form
   const clearForm = () => setFormData({
     email: '',
     message: '',
-    name: ''
+    name: '',
+    token: null
   });
 
   return (
@@ -181,6 +207,10 @@ export default function ContactMe() {
           </label>
           <div className="submission">
             <button type="submit" disabled={status.type !== 'idle'}>Send</button>
+            <div className="recaptcha">
+              <ReCaptchaV2 sitekey={apiKeys.recaptcha.site_key} onExpired={() => handleToken(null)} onChange={handleToken} ref={recaptchaRef} />
+              <span>{errors.token}</span>
+            </div>
           </div>
           <p>{status.message}</p>
         </form>
