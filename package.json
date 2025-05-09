@@ -16,9 +16,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "prop-types": "^15.8.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-google-recaptcha": "^3.1.0",
+    "react-lottie": "^1.2.10",
     "react-router-dom": "^7.5.3",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
@@ -52,6 +54,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
-    "@types/react-google-recaptcha": "^2.1.9"
+    "@types/react-google-recaptcha": "^2.1.9",
+    "@types/react-lottie": "^1.2.10"
   }
 }

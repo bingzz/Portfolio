@@ -1,16 +1,23 @@
 section#contact-wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
+  gap: 5rem;
+  align-items: center;
+  justify-items: center;
   padding: 1.5rem;
 
-  h2 {
-    margin-bottom: 1rem;
-  }
-
-  input,
-  textarea {
-    margin-bottom: 0.425rem;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
     width: 100%;
+    height: 100%;
+    background-image: url(../assets/img/contact_bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 
@@ -19,16 +26,15 @@ section#contact-wrapper fieldset {
   padding: 1rem;
   border-radius: 1rem;
   overflow: hidden;
-  width: 25rem;
+  width: 40rem;
   background-color: var(--color-semi-black);
   box-shadow: 0 0 5px var(--color-light-gray);
 
   p {
-    margin-bottom: 0.5rem;
-
     &.msg {
       text-align: justify;
       font-size: 1.05rem;
+      margin-bottom: 1rem;
     }
   }
 
@@ -37,6 +43,9 @@ section#contact-wrapper fieldset {
   }
 
   label {
+    display: block;
+    position: relative;
+    padding-bottom: 0.85rem;
 
     p,
     strong {
@@ -48,10 +57,6 @@ section#contact-wrapper fieldset {
       display: flex;
       justify-content: space-between;
     }
-
-    display: block;
-    position: relative;
-    padding-bottom: 0.85rem;
   }
 
   span {
@@ -68,7 +73,13 @@ section#contact-wrapper fieldset {
     gap: 0.5rem;
 
     button {
+      margin: auto;
+      max-width: 20rem;
       width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
     }
 
     .recaptcha {
@@ -77,5 +88,39 @@ section#contact-wrapper fieldset {
       flex-direction: column;
       gap: 0.5rem;
     }
+  }
+}
+
+@media only screen and (width <=1200px) {
+  section#contact-wrapper {
+    .lottie {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (width <=900px) {
+  section#contact-wrapper fieldset {
+    width: 100%;
+
+    p,
+    p.msg,
+    input,
+    textarea {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+div.contact-form-wrapper {
+  h2 {
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 1px var(--color-full-black);
+  }
+
+  input,
+  textarea {
+    margin-bottom: 0.425rem;
+    width: 100%;
   }
 }

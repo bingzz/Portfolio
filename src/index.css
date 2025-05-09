@@ -51,6 +51,7 @@ section#projects,
 section#home {
   color: var(--color-light-gray);
   height: 100%;
+  flex: 1;
   /* max-width: 1200px;
   margin: auto; */
 }
