@@ -4,6 +4,7 @@
 @import url(./styles/footer.css);
 @import url(./styles/inputs.css);
 @import url(./styles/buttons.css);
+@import url(./styles/home.css);
 @import url(./styles/contact.css);
 
 
@@ -46,10 +47,24 @@ textarea {
   resize: none;
 }
 
+hr {
+  position: relative;
+  margin-bottom: 1rem;
+  /* box-shadow: 0 0 1px var(--color-off-white); */
+  border: 0;
+
+  &::after {
+    content: '';
+    display: block;
+    background: radial-gradient(farthest-side at center top, #ccc 0%, transparent 100%);
+    height: 1px;
+  }
+}
+
 section#contact-wrapper,
 section#projects,
-section#home {
-  color: var(--color-light-gray);
+main#home {
+  color: var(--color-off-white);
   height: 100%;
   flex: 1;
   /* max-width: 1200px;

@@ -4,11 +4,13 @@
   --color-semi-black: #181818;
   --color-dark-gray: #5c5c5c;
   --color-light-gray: #c4c4c4;
+  --color-full-white: #fff;
   --color-off-white: #dfdfdf;
   --color-light-blue: #1468b6d5;
   --color-dark-blue: #002046d5;
   --color-light-red: #ec1e1ed5;
   --color-dark-red: #460000d5;
+  --color-neon-green: #39e20e;
 
   /* font family */
   --font-regular: 'Roboto-Regular', sans-serif;
