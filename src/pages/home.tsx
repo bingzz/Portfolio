@@ -37,11 +37,17 @@ function AboutMe() {
     <div className="about">
       <h3>About Me</h3>
       <hr />
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda nemo, eos autem temporibus quibusdam vel laudantium quisquam quae harum sint provident eaque iure magnam explicabo at magni maiores reprehenderit exercitationem natus laborum. Cumque dolores excepturi unde! Nihil quia animi voluptate saepe nisi dolor, possimus aut aspernatur autem! Odio iusto illum, unde eaque mollitia quisquam, odit amet sequi cumque numquam, adipisci et dolores? Pariatur, molestias quis. Praesentium minima ipsam architecto mollitia non. Deserunt odio eos illo voluptatum amet non esse fugiat ex repudiandae. Necessitatibus rerum atque excepturi omnis earum quasi saepe veniam reiciendis eaque, provident, repellendus veritatis deleniti nesciunt incidunt vitae!</p>
-      <br />
-      <p>Lorem ipsum dolor sit amet.</p>
-      <br />
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex neque quisquam eveniet! Commodi deserunt facere consequuntur exercitationem possimus omnis autem facilis! Voluptatem animi nam incidunt neque magnam, et dolore dicta repellendus aliquam nisi maiores adipisci exercitationem architecto quaerat atque illo sint tempore officiis accusamus eius, praesentium sed. Vero, tempore ipsam!</p>
+      <div className="container">
+        <div className="details">
+          <p>Hello stranger, I am an junior <strong>Software Engineer</strong> who has passion for coding. I love to learn new technologies that make myself improve to become better and to provide solutions for everyone. I am experienced with Web Development and I am open to any opportunities that aligns with my skillset and your requirements.</p>
+          <br />
+          <p>I may be new, but I'm still making progress. In order to become better is by just <strong>keep practicing</strong>.</p>
+        </div>
+        <div className="image">
+          <span className="pic"></span>
+        </div>
+      </div>
+
     </div>
   );
 }
@@ -49,8 +55,38 @@ function AboutMe() {
 function TechStack() {
   return (
     <div className="stack">
-      <h3>My Technology Stack</h3>
+      <h3>My Skillsets</h3>
       <hr />
+      <div className="language">
+        <h4>Languages</h4>
+        <ul className="slider">
+          {personal_info.stack.map((item, key) => (
+            <li key={key} className="slide">
+              <img src={item.icon_src} alt={item.name} title={item.name} />
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="frameworks">
+        <h4>Frameworks</h4>
+        <ul className="slider">
+          {personal_info.frameworks.map((item, key) => (
+            <li key={key}>
+              <img src={item.icon_src} alt={item.name} title={item.name} />
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="tools">
+        <h4>Tools</h4>
+        <ul className="slider">
+          {personal_info.tools.map((item, key) => (
+            <li key={key}>
+              <img src={item.icon_src} alt={item.name} title={item.name} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

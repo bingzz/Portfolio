@@ -17,18 +17,13 @@ export default function LottieTemplate({ key, src, dimensions }: LottieProps) {
     animationData: src
   };
 
-  const arr = [{ key, src, dimensions }];
   return (
-    <div className="lottie">
-      {arr.map((elem, i) => (
-        <Lottie
-          key={`${key}_${i}`}
-          options={lottieOptions}
-          height={elem.dimensions?.h || 400}
-          width={elem.dimensions?.w || 400}
-        />
-      ))}
-
+    <div className="lottie" key={key}>
+      <Lottie
+        options={lottieOptions}
+        height={dimensions?.h || 400}
+        width={dimensions?.w || 400}
+      />
     </div>
   );
 }

@@ -1,4 +1,6 @@
 main#home {
+  max-width: 1600px;
+  margin: auto;
 
   &>div {
     padding: 2rem 4rem;
@@ -61,7 +63,57 @@ main#home {
   .about {
     p {
       text-align: justify;
-      font-size: 1.125rem;
+      font-size: 1.6rem;
+    }
+
+    .container {
+      min-height: 20rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .image {
+      height: 100%;
+
+      .pic {
+        display: block;
+        height: inherit;
+        background: url(../assets/img/about.jpg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  .stack {
+    h4 {
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h4,
+    ul.slider {}
+
+    img {
+      width: 5rem;
+      height: auto;
+    }
+
+    ul.slider {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 1rem;
+      gap: 1rem;
+      border-radius: 5px;
+      /* border: 2px dashed; */
+      padding: 1rem 2rem;
     }
   }
 
@@ -254,6 +306,11 @@ main#home {
       .heading {
         justify-self: center;
       }
+    }
+
+    .about .container {
+      grid-template-columns: none;
+      grid-template-rows: repeat(2, 1fr);
     }
 
     .experience {
