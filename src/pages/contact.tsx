@@ -5,8 +5,10 @@ import ReCaptchaV2 from 'react-google-recaptcha';
 import LottieTemplate from "../components/Lottie";
 import sendMessage from "../utils/email";
 import contactMeAnimation from '../assets/lottie/contact_me.json';
-import mailSvg from '../assets/img/mail.svg';
-import { apiKeys } from "../data/constants";
+import mailSvg from '../assets/img/svg/mail.svg';
+import phoneSvg from '../assets/img/svg/telephone.svg';
+import locationSvg from '../assets/img/svg/location.svg';
+import { apiKeys, personal_info } from "../data/constants";
 
 enum FormStatus {
   idle = 'idle',
@@ -189,7 +191,7 @@ export default function Contact() {
         <h2>Feel free to reach me out!</h2>
         <fieldset>
           <form onSubmit={submitForm}>
-            <p className="msg">If you have any questions or have any work opportunities that aligns with my skills, you can contact me on this form.</p>
+            <p className="msg">If you have any questions or have any work opportunities that aligns with my skills, you can contact me by filling in this form.</p>
             <label htmlFor="name">
               <strong>Name:</strong>
               <input type="text" name="name" id="name" value={formData.name} onChange={handleInputChange} placeholder="Your name" disabled={status.type !== 'idle'} autoFocus required aria-required="true" />
@@ -211,7 +213,8 @@ export default function Contact() {
             <div className="submission">
               <button type="submit" disabled={status.type !== 'idle'}>
                 <p>Send</p>
-                <img src={mailSvg} alt={'Send Form'} /></button>
+                <img src={mailSvg} alt={'Send Form'} />
+              </button>
               <div className="recaptcha">
                 <ReCaptchaV2 sitekey={apiKeys.recaptcha.site_key} onExpired={() => handleToken(null)} onChange={handleToken} ref={recaptchaRef} />
                 <span>{errors.token}</span>
@@ -221,7 +224,25 @@ export default function Contact() {
           </form>
         </fieldset>
       </div>
-      <LottieTemplate key={'contact_me'} src={contactMeAnimation} />
+      <div className="contact-details">
+        <div className="lottie">
+          <LottieTemplate key={'contact_me'} src={contactMeAnimation} />
+        </div>
+        <div className="contact-info">
+          <div>
+            <span><img src={locationSvg} alt={'Location'} /></span>
+            <p>{personal_info.location}</p>
+          </div>
+          <div>
+            <span><img src={mailSvg} alt={'Email Address'} /></span>
+            <p>{personal_info.email}</p>
+          </div>
+          <div>
+            <span><img src={phoneSvg} alt={'Contact Number'} /></span>
+            <p>{personal_info.contact}</p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

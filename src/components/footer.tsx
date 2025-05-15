@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-import github from '../assets/img/github.svg';
-import fb from '../assets/img/fb.svg';
-import ig from '../assets/img/ig.svg';
-import linkedIn from '../assets/img/linkedin.svg';
+import github from '../assets/img/svg/github.svg';
+import fb from '../assets/img/svg/fb.svg';
+import ig from '../assets/img/svg/ig.svg';
+import linkedIn from '../assets/img/svg/linkedin.svg';
 
 const urls = [
   {

@@ -1,7 +1,9 @@
 import { personal_info } from "../data/constants";
 import educ from '../assets/lottie/education.json';
 import work from '../assets/lottie/work_experience.json';
+import download from '../assets/img/svg/download.svg';
 import LottieTemplate from "../components/Lottie";
+import resume from '../assets/files/cv_Real.pdf';
 
 export default function Home() {
   return (
@@ -16,6 +18,40 @@ export default function Home() {
 }
 
 function Hero() {
+
+  const downloadResume = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    try {
+      e.preventDefault();
+
+      const response = await fetch(resume, {
+        headers: {
+          'Accept': 'application/pdf'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const contentType = response.headers.get('Content-Type');
+      if (!contentType || !contentType.includes('application/pdf')) {
+        throw new Error(`Expected PDF, but received ${contentType}`);
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'Real_resume.pdf');
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url); // Clean up the URL
+    } catch (error) {
+      console.error('Failed to fetch PDF:', error);
+    }
+  };
+
   return (
     <div className="hero">
       <div className="face">
@@ -28,6 +64,8 @@ function Hero() {
           <i>– Progression comes naturally when you're having fun.</i>
         </div>
       </div>
+      {/* <a className="button" href="../assets/files/cv_Real.pdf" target="_blank" rel="noopener noreferrer">Download</a> */}
+      <button onClick={downloadResume}>Download Resume <img src={download} alt="Download Resume" /></button>
     </div>
   );
 }

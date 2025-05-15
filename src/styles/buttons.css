@@ -1,4 +1,7 @@
-button {
+button, a.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--color-light-gray);
   background-color: var(--color-light-blue);
   border: none;

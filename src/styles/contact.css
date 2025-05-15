@@ -15,7 +15,7 @@ section#contact-wrapper {
     z-index: -1;
     width: 100%;
     height: 100%;
-    background-image: url(../assets/img/contact_bg.jpg);
+    background-image: url(../assets/img/pics/contact_bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -93,6 +93,9 @@ section#contact-wrapper fieldset {
 
 @media only screen and (width <=1200px) {
   section#contact-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+
     .lottie {
       display: none;
     }
@@ -122,5 +125,24 @@ div.contact-form-wrapper {
   textarea {
     margin-bottom: 0.425rem;
     width: 100%;
+  }
+}
+
+.contact-details {
+  .lottie {
+    margin-bottom: 1rem;
+  }
+
+  .contact-info {
+    &>div {
+      background-color: var(--color-semi-black);
+      border: 1px solid var(--color-dark-bg);
+      margin-bottom: 1rem;
+      padding: 0.85rem;
+      border-radius: 15px;
+      display: flex;
+      gap: 1rem;
+      font-size: 1.25rem;
+    }
   }
 }
