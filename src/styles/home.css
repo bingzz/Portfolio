@@ -131,7 +131,7 @@ main#home {
 
       li {
         border: 3px dashed var(--color-dark-gray);
-        background-color: #41414160;
+        background-color: var(--color-dark-bg);
         padding: 2rem;
         border-radius: 5px;
         display: grid;
@@ -194,7 +194,7 @@ main#home {
 
       li {
         border: 3px dashed var(--color-dark-gray);
-        background-color: #41414160;
+        background-color: var(--color-dark-bg);
         padding: 2rem;
         border-radius: 5px;
         display: grid;

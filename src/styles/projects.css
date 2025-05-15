@@ -1,0 +1,49 @@
+section#projects {
+  max-width: 1600px;
+  margin: auto;
+  padding: 1rem;
+
+  ul.list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+    padding: 1.5rem;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    li {
+      border: 3px dashed var(--color-dark-gray);
+      background-color: var(--color-dark-bg);
+      border-radius: 5px;
+      padding: 1.425rem 1rem;
+
+      a {
+        font-size: 1.5rem;
+        color: var(--color-light-blue);
+        margin-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      img {
+        width: 40px;
+        height: auto;
+      }
+    }
+  }
+
+  .stack {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+}
+
+@media only screen and (width <=800px) {
+  section#projects {
+    ul.list {
+      grid-template-columns: none;
+    }
+  }
+}

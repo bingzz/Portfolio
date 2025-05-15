@@ -12,7 +12,7 @@ import golang from '../assets/img/golang.png';
 import mysql from '../assets/img/mysql.png';
 import mongodb from '../assets/img/mongodb.png';
 import postgres from '../assets/img/postgres.png';
-import cs from '../assets/img/c#.png';
+import cs from '../assets/img/cs.png';
 import java from '../assets/img/java.png';
 
 import git from '../assets/img/git.png';
