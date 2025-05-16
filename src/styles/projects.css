@@ -45,5 +45,9 @@ section#projects {
     ul.list {
       grid-template-columns: none;
     }
+
+    h2 {
+      font-size: 1.325rem;
+    }
   }
 }

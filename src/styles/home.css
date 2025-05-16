@@ -35,12 +35,13 @@ main#home {
 
     button {
       position: absolute;
-      
+
       bottom: 1rem;
       right: 2rem;
       width: 13.5rem;
       height: 3rem;
     }
+
     .face {
       justify-self: self-end;
 
@@ -254,6 +255,11 @@ main#home {
 
 @media only screen and (width <=1200px) {
   main#home {
+
+    &>div {
+      padding: 2rem 1rem;
+    }
+
     .hero {
       grid-template-columns: none;
       grid-template-rows: 1fr 1fr;
@@ -306,6 +312,7 @@ main#home {
 
     .hero {
       gap: 0.5rem;
+      text-align: center;
 
       button {
         right: 50%;
@@ -324,6 +331,10 @@ main#home {
     .about .container {
       grid-template-columns: none;
       grid-template-rows: repeat(2, 1fr);
+
+      .details p {
+        font-size: 1.4rem;
+      }
     }
 
     .experience {
