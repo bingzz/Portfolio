@@ -149,9 +149,7 @@ function Experience() {
             </li>
           ))}
         </ul>
-        <div className="lottie">
-          <LottieTemplate src={work} />
-        </div>
+        <LottieTemplate src={work} key="work" dimensions={{ h: 300, w: 300 }} />
       </div>
     </div>
   );
@@ -163,9 +161,7 @@ function Education() {
       <h3>Education</h3>
       <hr />
       <div className="container">
-        <div className="lottie">
-          <LottieTemplate src={educ} />
-        </div>
+        <LottieTemplate src={educ} key="educ" dimensions={{ h: 300, w: 300 }} />
         <ul className="blocks">
           {personal_info.education.map((item, key) => (
             <li key={key}>
